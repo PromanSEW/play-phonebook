@@ -29,9 +29,17 @@ public class Contact extends Model {
 	public static List<Contact> all() {
 		return find.all();
 	}
+	
+	public static Contact getById(Long Id) {
+		return find.byId(Id);
+	}
 
 	public static void create(Contact contact) {
 		contact.save();
+	}
+	
+	public static void update(Contact contact) {
+		contact.update();
 	}
 
 	public static void delete(Long id) {
