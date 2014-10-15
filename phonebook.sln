@@ -1,0 +1,14 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{002A2E23-40E6-44DB-8BF3-4DAE5A34E86F}"
+	ProjectSection(SolutionItems) = preProject
+		app\views\index.scala.html = app\views\index.scala.html
+		app\views\main.scala.html = app\views\main.scala.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

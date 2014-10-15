@@ -1,0 +1,43 @@
+@(contacts: List[Contact], contactForm: Form[Contact])
+@import helper._
+@main("Записная книжка") {
+    
+    <h1 align=center>@contacts.size() контакт(ов)</h1>
+    <table border="2" align="center">
+        <thead>
+	        <tr>
+		        <td>Имя</td>
+		        <td>Мобильный телефон</td>
+		        <td>Домашний телефон</td>
+	        </tr>
+        </thead>
+        <tbody>
+            @for(contact <- contacts) {
+	        <tr>
+		        <td>@contact.name</td>
+		        <td>@contact.mobphone</td>
+		        <td>@contact.homephone</td>
+		        <td>
+		        @form(routes.Application.deleteContact(contact.id)) {
+                    <input type="submit" value="Удалить">
+		        }
+		        </td>
+	        </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2 align=center>Добавить новый контакт</h2>
+
+    @form(routes.Application.newContact()) {
+    <table align="center">
+        <tr>
+	        <td>@inputText(contactForm("name"))</td>
+	        <td>@inputText(contactForm("mobphone"))</td>
+	        <td>@inputText(contactForm("homephone"))</td>
+	        <td><input type="submit" value="Создать"></td>
+        <tr>
+    </table>
+    }
+    
+}
