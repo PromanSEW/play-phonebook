@@ -2,13 +2,13 @@
 @import helper._
 @main("Записная книжка") {
     
-    <h1 align=center>@contacts.size() контакт(ов)</h1>
-    <table border="2" align="center">
+    <h1 id="cnt" align="center">@contacts.size() контакт</h1>
+    <table class="table table-bordered table-condensed">
         <thead>
 	        <tr>
-		        <td>Имя</td>
-		        <td>Мобильный телефон</td>
-		        <td>Домашний телефон</td>
+		        <td width="50%">Имя</td>
+		        <td width="25%">Мобильный телефон</td>
+		        <td width="25%">Домашний телефон</td>
 		        <td colspan="2" style="text-align: center;">Действия</td>
 	        </tr>
         </thead>
@@ -20,12 +20,12 @@
 		        <td>@contact.homephone</td>
                 <td>
 		        @form(routes.Application.openContact(contact.id)) {
-                    <input type="submit" value="Редактировать">
+                    <input type="submit" class="btn btn-primary" value="Редактировать">
 		        }
 		        </td>
 		        <td>
 		        @form(routes.Application.deleteContact(contact.id)) {
-                    <input type="submit" value="Удалить">
+                    <input type="submit" class="btn btn-danger" value="Удалить">
 		        }
 		        </td>
 	        </tr>
@@ -33,25 +33,25 @@
         </tbody>
     </table>
 
-    <h2 align=center>Добавить новый контакт</h2>
+    <h2 align="center">Добавить новый контакт</h2>
 
     @form(routes.Application.newContact()) {
     <table align="center">
         <tr>
 	        <td>Имя:</td>
-	        <td><input type="text" name="name" /></td>
+	        <td><input type="text" name="name" class="form-control" /></td>
 	    </tr>
 	    <tr>
 	        <td>Мобильный телефон:</td>
-	        <td><input type="text" name="mobphone" /></td>
+	        <td><input type="text" name="mobphone" class="form-control" /></td>
 	    </tr>
 	    <tr>
 	        <td>Домашний телефон:</td>
-	        <td><input type="text" name="homephone" /></td>  
+	        <td><input type="text" name="homephone" class="form-control" /></td>  
 	    </tr>
 	    <tr>  
 	        <td></td>
-	        <td style="text-align: right;"><input type="submit" value="Создать"></td>
+	        <td><input type="submit" class="btn btn-primary" value="Создать" style="width: 100%;"></td>
         <tr>
     </table>
     } 

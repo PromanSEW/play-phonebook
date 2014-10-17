@@ -10,14 +10,17 @@ public class Application extends Controller {
 
 	static Form<Contact> contactForm = Form.form(Contact.class);
 
+	// Главная
 	public static Result index() {
 		return redirect(routes.Application.contacts());
 	}
 
+	// Контакты
 	public static Result contacts() {
 		return ok(index.render(Contact.all(), contactForm));
 	}
 
+	// Новый контакт
 	public static Result newContact() {
 		Form<Contact> filledForm = contactForm.bindFromRequest();
 		if (filledForm.hasErrors()) {
@@ -28,6 +31,7 @@ public class Application extends Controller {
 		}
 	}
 	
+	// Редактировать контакт
 	public static Result editContact() {
 		Form<Contact> filledForm = contactForm.bindFromRequest();
 		if (filledForm.hasErrors()) {
@@ -38,10 +42,12 @@ public class Application extends Controller {
 		}
 	}
 	
+	// Открыть контакт
 	public static Result openContact(Long id) {
 		return ok(edit.render(Contact.getById(id), contactForm));
 	}
 
+	// Удалить контакт
 	public static Result deleteContact(Long id) {
 		Contact.delete(id);
 		return redirect(routes.Application.contacts());
