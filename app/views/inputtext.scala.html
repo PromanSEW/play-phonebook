@@ -1,0 +1,7 @@
+@(field: Field, label: String, args: (Symbol,Any)*)
+<div class="form-group">
+    <label for="@field.name" style="text-align: center">@label</label>
+    <div>
+        <input name="@field.name" id="@field.name" type="text" class="form-control" @toHtmlArgs(args.toMap) />
+    </div>
+</div>

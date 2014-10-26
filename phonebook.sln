@@ -5,6 +5,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		app\views\edit.scala.html = app\views\edit.scala.html
 		app\views\index.scala.html = app\views\index.scala.html
+		app\views\inputtext.scala.html = app\views\inputtext.scala.html
 		app\views\main.scala.html = app\views\main.scala.html
 		public\javascripts\skl.js = public\javascripts\skl.js
 	EndProjectSection

@@ -1,7 +1,6 @@
 @(contacts: List[Contact], contactForm: Form[Contact])
 @import helper._
-@main("Записная книжка") {
-    
+@main("Записная книжка") {   
     <h1 id="cnt" align="center">@contacts.size() контакт</h1>
     <table class="table table-bordered table-condensed">
         <thead>
@@ -38,19 +37,15 @@
     @form(routes.Application.newContact()) {
     <table align="center">
         <tr>
-	        <td>Имя:</td>
-	        <td><input type="text" name="name" class="form-control" /></td>
+            <td>@inputtext(contactForm("name"), "Имя:")</td>
 	    </tr>
 	    <tr>
-	        <td>Мобильный телефон:</td>
-	        <td><input type="text" name="mobphone" class="form-control" /></td>
+	        <td>@inputtext(contactForm("mobphone"), "Мобильный телефон:")</td>
 	    </tr>
 	    <tr>
-	        <td>Домашний телефон:</td>
-	        <td><input type="text" name="homephone" class="form-control" /></td>  
+	        <td>@inputtext(contactForm("homephone"), "Домашний телефон:")</td>
 	    </tr>
 	    <tr>  
-	        <td></td>
 	        <td><input type="submit" class="btn btn-primary" value="Создать" style="width: 100%;"></td>
         <tr>
     </table>
