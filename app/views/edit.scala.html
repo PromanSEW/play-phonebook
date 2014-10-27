@@ -1,15 +1,15 @@
-@(contact: Contact, contactForm: Form[Contact])
+@(contactForm: Form[Contact])
 @import helper._
 @main("Редактирование контакта") {
     <h2 align=center>Редактировать контакт</h2>
     @form(routes.Application.editContact()) {
     <table align="center">
         <tr>
-            <td><input type="hidden" name="id" value="@contact.id" /></td>
-	        <td style="padding-left: 5px; padding-right: 5px;">@inputtext(contactForm("name"), "Имя:", 'value -> contact.name)</td>
-	        <td style="padding-left: 5px; padding-right: 5px;">@inputtext(contactForm("mobphone"), "Мобильный телефон:", 'value -> contact.mobphone)</td>
-	        <td style="padding-left: 5px; padding-right: 5px;">@inputtext(contactForm("homephone"), "Домашний телефон:", 'value -> contact.homephone)</td>
-	        <td style="padding-left: 5px; padding-right: 5px;"><input type="submit" class="btn btn-primary" value="Редактировать"></td>
+            <td><input type="hidden" name="id" value="@contactForm("id").value" /></td>
+	        <td class="inputtext">@inputtext(contactForm("name"), "Имя:")</td>
+	        <td class="inputtext">@inputtext(contactForm("mobphone"), "Мобильный телефон:")</td>
+	        <td class="inputtext">@inputtext(contactForm("homephone"), "Домашний телефон:")</td>
+	        <td class="inputtext"><input type="submit" class="btn btn-primary" value="Редактировать"></td>
         <tr>
     </table>
     }

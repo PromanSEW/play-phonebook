@@ -35,7 +35,7 @@ public class Application extends Controller {
 	public static Result editContact() {
 		Form<Contact> filledForm = contactForm.bindFromRequest();
 		if (filledForm.hasErrors()) {
-			return badRequest(edit.render(filledForm.get(), filledForm));
+			return badRequest(edit.render(filledForm));
 		} else {
 			Contact.update(filledForm.get());
 			return redirect(routes.Application.contacts());
@@ -44,7 +44,7 @@ public class Application extends Controller {
 	
 	// Открыть контакт
 	public static Result openContact(Long id) {
-		return ok(edit.render(Contact.getById(id), contactForm));
+		return ok(edit.render(contactForm.fill(Contact.getById(id))));
 	}
 
 	// Удалить контакт
